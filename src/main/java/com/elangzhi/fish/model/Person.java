@@ -19,6 +19,18 @@ public class Person {
 
     private String roomName;
 
+    private Boolean finish = true;
+
+
+
+    public Boolean getFinish() {
+        return finish;
+    }
+
+    public void setFinish(Boolean finish) {
+        this.finish = finish;
+    }
+
     public String getRoomName() {
         return roomName;
     }

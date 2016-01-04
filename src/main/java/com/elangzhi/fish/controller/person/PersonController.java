@@ -61,6 +61,7 @@ public class PersonController {
                         person.setRoomId(Long.parseLong(roomArray[i]));
                         personService.updateById(person);
                     }catch (Exception e){
+                        e.printStackTrace();
                         return new Tip(3);
                     }
 
@@ -69,6 +70,7 @@ public class PersonController {
                 return new Tip(2);
             }
         }catch (Exception e){
+            e.printStackTrace();
             return new Tip(1);
         }
         return new Tip();
@@ -92,6 +94,46 @@ public class PersonController {
         Person person = personService.findById(id);
         model.put("obj",person);
         return new ModelAndView("person/person-show",model);
+    }
+
+
+    @RequestMapping("/down/{gameId}")
+    @ResponseBody
+    public List<Person> getPersonList(@PathVariable Long gameId, HttpServletRequest request, ModelMap model){
+
+        List<Person> list = personService.list(3,gameId);
+
+        return list;
+    }
+
+
+    @RequestMapping(value = "/finish", method = RequestMethod.POST)
+    @ResponseBody
+    public Tip finish(
+            @RequestParam(value="personId", required=false) Long personId,
+            @RequestParam(value="number", required=false) Integer number,
+            @RequestParam(value="weight", required=false) Double weight
+
+            ){
+
+        try {
+            Person person = personService.findById(personId);
+            person.setNumber(number);
+            person.setWeight(weight);
+            personService.updateById(person);
+        }catch (Exception e){
+            return new Tip(1);
+        }
+        return new Tip();
+    }
+
+    @RequestMapping("/json/{personId}")
+    @ResponseBody
+    public Person findJson(@PathVariable Long personId, HttpServletRequest request, ModelMap model){
+
+        Person person = personService.findById(personId);
+
+        return person;
     }
 
 

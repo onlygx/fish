@@ -262,14 +262,15 @@
             }
 
         }
+/*
 
         console.log(delDw);
         console.log(pers);
+*/
 
-        $.post("/person/save",{
-            "name":name,
-            "parentId":parentId,
-            "gameId":gameId
+        $.post("/person/updateRoom",{
+            "rooms":delDw.join(","),
+            "persons":pers.join(",")
         },function(data){
             if(data.success){
                 alert("操作成功。");
