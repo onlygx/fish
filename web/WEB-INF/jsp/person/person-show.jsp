@@ -28,3 +28,9 @@
     </div>
 </body>
 </html>
+<script>
+
+    (function($){
+        window.print();
+    }(jQuery));
+</script>

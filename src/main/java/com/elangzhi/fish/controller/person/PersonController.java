@@ -44,6 +44,36 @@ public class PersonController {
         return new Tip();
     }
 
+    @RequestMapping(value = "/updateRoom", method = RequestMethod.POST)
+    @ResponseBody
+    public Tip updateRoom(
+            @RequestParam(value="rooms", required=false) String rooms,
+            @RequestParam(value="persons", required=false) String persons
+    ){
+
+        try {
+            String[] roomArray = rooms.split(",");
+            String[] personArray = persons.split(",");
+            if(roomArray.length == personArray.length){
+                for(int i = 0 ; i < roomArray.length ; i ++){
+                    try{
+                        Person person = personService.findById(Long.parseLong(personArray[i]));
+                        person.setRoomId(Long.parseLong(roomArray[i]));
+                        personService.updateById(person);
+                    }catch (Exception e){
+                        return new Tip(3);
+                    }
+
+                }
+            }else{
+                return new Tip(2);
+            }
+        }catch (Exception e){
+            return new Tip(1);
+        }
+        return new Tip();
+    }
+
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseBody
     public Tip delete(@RequestParam(value="id", required=false) Long id){
