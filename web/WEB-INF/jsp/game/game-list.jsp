@@ -24,17 +24,19 @@
 </head>
 <body  style="background-color: #E6E6E6">
 
-<jsp:include page="navbar.jsp"></jsp:include>
+<jsp:include page="../navbar.jsp"></jsp:include>
 
-<div id="container" style="width: 80%;height: 75%;" align="center">
+<div id="container" style="width: 100%;height: 75%;" align="center">
 
     <fieldset>
         <legend>比赛列表</legend>
     </fieldset>
 
-    <div id="table" style="width: 80%;margin-top: 20px;">
+    <div  style="width: 80%;margin-top: 20px;" >
+       <%-- <div align="left" style="margin-bottom: 30px;">
 
-        <table class="table">
+        </div>--%>
+        <table class="table " >
             <thead>
             <tr>
                 <th>创建时间</th>
@@ -44,6 +46,21 @@
             </tr>
             </thead>
             <tbody>
+            <tr>
+                <td class="rate-time">添加新赛事</td>
+                <td  scope="row">
+                    <input type="text" id="gameName" class="form-control">
+
+                </td>
+                <td class="rate-value">
+                    <textarea id="gameIntro" class="form-control"></textarea>
+
+                </td>
+                <td>
+                    <a href="javascript:void(0);" class="btn btn-info" onclick="save()"> 创建比赛</a>
+
+                </td>
+            </tr>
             <c:forEach var="item" items="${list}" varStatus="status" >
 
                 <tr>
@@ -54,11 +71,13 @@
                         <a href="/game/${item.id}">查看详情</a>
                         &nbsp;&nbsp;&nbsp;
                         <a href="/game/setting/${item.id}">设置</a>
-
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="javascript:void(0);" onclick="del('${item.id}')">删除</a>
                     </td>
                 </tr>
 
             </c:forEach>
+
             </tbody>
         </table>
     </div>
@@ -66,3 +85,39 @@
 </div>
 </body>
 </html>
+<script>
+    function save(){
+        var name = $("#gameName").val();
+        var intro = $("#gameIntro").val();
+        $.post("/game/save",{
+            "name":name,
+            "intro":intro
+        },function(data){
+            if(data.success){
+                alert("操作成功。");
+                window.location.reload();
+            }else{
+                alert("操作失败。");
+            }
+        },"json");
+    }
+
+
+    function del(id){
+        if(!confirm("确定删除么？")){
+            return;
+        }
+
+        $.post("/game/delete",{
+            "id":id
+        },function(data){
+            if(data.success){
+                alert("操作成功。");
+                window.location.reload();
+            }else{
+                alert("操作失败。");
+            }
+        },"json");
+    }
+
+</script>

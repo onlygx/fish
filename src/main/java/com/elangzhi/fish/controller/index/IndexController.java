@@ -19,7 +19,7 @@ import java.util.Date;
 //@RequestMapping("/")
 public class IndexController {
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public ModelAndView showCall(@PathVariable String name,HttpServletRequest request,ModelMap model){
         model.addAttribute("date", new Date());
         model.addAttribute("name", name);

@@ -79,4 +79,22 @@
       game_id = #{gameId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="list" resultMap="BaseResultMap">
+    select * from room
+    where 1 = 1
+  <if test="gameId != null" >
+      and `game_id` = #{gameId,jdbcType=BIGINT}
+      and `parent_id` = 0
+  </if>
+  </select>
+
+
+  <select id="listByParentId" resultMap="BaseResultMap">
+    select * from room
+    where 1 = 1
+  <if test="parentId != null" >
+      and `parent_id` = #{parentId,jdbcType=BIGINT}
+  </if>
+  </select>
 </mapper>

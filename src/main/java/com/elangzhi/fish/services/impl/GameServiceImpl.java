@@ -20,12 +20,12 @@ public class GameServiceImpl implements GameService {
 
     @Override
     public Integer save(Game game) {
-        return null;
+        return gameMapper.insertSelective(game);
     }
 
     @Override
     public Integer deleteById(Long id) {
-        return null;
+        return gameMapper.deleteByPrimaryKey(id);
     }
 
     @Override

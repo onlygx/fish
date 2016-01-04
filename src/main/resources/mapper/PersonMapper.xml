@@ -127,15 +127,17 @@
   </update>
 
   <select id="list" resultMap="BaseResultMap">
-    select * from person
+    select a.*,b.`name` roomName
+    from person a
+    left join room b on a.room_id = b.id
     where 1 = 1
 
     <if test="type != null" >
-      and `type` = #{type,jdbcType=INTEGER}
+      and a.`type` = #{type,jdbcType=INTEGER}
     </if>
 
     <if test="gameId != null" >
-      and `game_id` = #{gameId,jdbcType=BIGINT}
+      and a.`game_id` = #{gameId,jdbcType=BIGINT}
     </if>
   </select>
 </mapper>

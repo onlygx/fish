@@ -17,6 +17,16 @@ public class Person {
 
     private String intro;
 
+    private String roomName;
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
     public Long getId() {
         return id;
     }

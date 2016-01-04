@@ -24,9 +24,9 @@
 </head>
 <body  style="background-color: #E6E6E6">
 
-<jsp:include page="navbar.jsp"></jsp:include>
+<jsp:include page="../navbar.jsp"></jsp:include>
 
-<div id="container" style="width: 80%;height: 75%;" align="center">
+<div id="container" style="width: 100%;" align="center">
 
     <div>
 
@@ -34,7 +34,6 @@
             <legend>${obj.name}</legend>
         </fieldset>
         <p>${obj.intro}</p>
-
 
         <div style="width: 80%;margin-top: 20px;" align="left">
             <div>

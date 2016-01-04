@@ -11,6 +11,7 @@ public class Game {
 
     private String intro;
 
+
     public Long getId() {
         return id;
     }

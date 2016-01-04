@@ -8,13 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>首页测试</title>
+    <title>加载中</title>
 </head>
-<body>
-<h2>WEB-INF!</h2>
-
-<h4> 1` ${adminJson}</h4>
-<h4> 2` ${name}</h4>
-<h4> 3` ${date.getTime()}</h4>
+<body onload="send()">
 </body>
 </html>
+<script>
+
+    function send(){
+        window.location.href="/game/list"
+    }
+</script>
