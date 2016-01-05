@@ -39,6 +39,8 @@
         <table class="table " >
             <thead>
             <tr>
+
+                <th>比赛编号</th>
                 <th>创建时间</th>
                 <th>比赛</th>
                 <th>备注</th>
@@ -47,6 +49,7 @@
             </thead>
             <tbody>
             <tr>
+                <td class="rate-time"></td>
                 <td class="rate-time">添加新赛事</td>
                 <td  scope="row">
                     <input type="text" id="gameName" class="form-control">
@@ -64,6 +67,7 @@
             <c:forEach var="item" items="${list}" varStatus="status" >
 
                 <tr>
+                    <td  scope="row">${item.id}</td>
                     <td class="rate-time"><fmt:formatDate value="${item.setTime}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                     <td  scope="row">${item.name}</td>
                     <td class="rate-value"><c:out value="${item.intro}" /></td>

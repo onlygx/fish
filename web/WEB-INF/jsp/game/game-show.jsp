@@ -34,7 +34,9 @@
             <legend>${obj.name}</legend>
         </fieldset>
         <p>${obj.intro}</p>
-
+        <div>
+            <img class="img-rounded" src="http://qr.liantu.com/api.php?text=${obj.id}" style="width: 200px;height: 200px;"/>
+        </div>
         <div style="width: 80%;margin-top: 20px;" align="left">
             <div>
                 <h3>
@@ -72,7 +74,7 @@
                     <th>钓位</th>
                     <th>尾数</th>
                     <th>重量</th>
-
+                    <th>操作</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -86,6 +88,10 @@
                         <td class="rate-time ">${item.roomName} </td>
                         <td class="rate-time ">${item.number} </td>
                         <td class="rate-value"><c:out value="${item.weight}" /></td>
+                        <td>
+
+
+                        </td>
                     </tr>
 
                 </c:forEach>
@@ -99,6 +105,10 @@
                         <td class="rate-time ">${item.roomName} </td>
                         <td class="rate-time ">${item.number} </td>
                         <td class="rate-value"><c:out value="${item.weight}" /></td>
+                        <td>
+
+
+                        </td>
                     </tr>
 
                 </c:forEach>
@@ -112,6 +122,11 @@
                         <td class="rate-time ">${item.roomName} </td>
                         <td class="rate-time ">${item.number} </td>
                         <td class="rate-value"><c:out value="${item.weight}" /></td>
+                        <td>
+
+                            <a href="/person/${item.id}">查看二维码</a>
+
+                        </td>
                     </tr>
 
                 </c:forEach>

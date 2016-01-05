@@ -168,6 +168,7 @@
                 <caption>参赛人员列表：</caption>
                 <thead>
                 <tr>
+                    <th>参赛编号</th>
                     <th>姓名</th>
                     <th>钓位</th>
                     <%-- <th>尾数</th>
@@ -179,6 +180,7 @@
                 <tbody>
 
                 <tr>
+                    <td  scope="row"> </td>
                     <td  scope="row">
                         <input type="text" class="form-control" id="person3" placeholder="裁判..." style="width: 200px;">
                     </td>
@@ -193,6 +195,7 @@
                 <c:forEach var="item" items="${personList3}" varStatus="status" >
 
                     <tr>
+                        <td  scope="row">${item.id} </td>
                         <td  scope="row">
                         ${item.name}
                         <input type="hidden" name="h_person" value="${item.id}">
