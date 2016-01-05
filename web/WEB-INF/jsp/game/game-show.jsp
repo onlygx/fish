@@ -70,6 +70,7 @@
                 <tr>
 
                     <th>#</th>
+                    <th>参赛编号</th>
                     <th>姓名</th>
                     <th>钓位</th>
                     <th>尾数</th>
@@ -84,6 +85,7 @@
                         <td  scope="row">
                             <input type="checkbox" id="c_${item.id}" value="${item.id}" name="person" >
                         </td>
+                        <td class="rate-time ">${item.id} </td>
                         <td  scope="row" id="n_${item.id}">${item.name} </td>
                         <td class="rate-time ">${item.roomName} </td>
                         <td class="rate-time ">${item.number} </td>
@@ -101,6 +103,7 @@
                         <td  scope="row">
                             <input type="checkbox" id="c_${item.id}" value="${item.id}" name="person" >
                         </td>
+                        <td class="rate-time ">${item.id} </td>
                         <td  scope="row" id="n_${item.id}">${item.name} </td>
                         <td class="rate-time ">${item.roomName} </td>
                         <td class="rate-time ">${item.number} </td>
@@ -118,6 +121,7 @@
                         <td  scope="row">
                             <input type="checkbox" id="c_${item.id}" value="${item.id}" name="person" >
                         </td>
+                        <td class="rate-time ">${item.id} </td>
                         <td  scope="row" id="n_${item.id}">${item.name} </td>
                         <td class="rate-time ">${item.roomName} </td>
                         <td class="rate-time ">${item.number} </td>
